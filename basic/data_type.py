@@ -1,4 +1,7 @@
 myName = "Hemlal Dulal"
+import math
+
+gpa = 3.3
 
 # a="Hemlal"
 # print(type(a))
@@ -51,5 +54,16 @@ myName = "Hemlal Dulal"
 # print(isinstance(best_price, int))
 
 #! complex data type
-comp_val = 5 + 10j
-print(type(comp_val))
+# comp_val = 5 + 10j
+# print(type(comp_val))
+
+#! Math methods
+# print(math.pi)
+# print(math.sqrt(81))
+# print(math.ceil(gpa))
+# print(math.floor(gpa))
+
+#! casting string to an integer
+zipcode = "44400"
+zip_value = int(zipcode)
+print(type(zip_value))
