@@ -89,12 +89,44 @@ band2 = dict(vocals="Plant", guitar="Page")
 # print(len(nums2))
 
 #! No duplicate allowed
-nums = {1, 2, 2, 3}
-print(nums)
+# nums = {1, 2, 2, 3}
+# print(nums)
 
 #! True is a dupe of 1, False is a dupe of zero
-nums = {1, True, 2, 2, False, 3, 4, 0}
-print(nums)
+# nums = {1, True, 2, 2, False, 3, 4, 0}
+# print(nums)
 
 #! check if a value is in a set
-print(2 in nums)
+# print(2 in nums)
+
+#! Add a new element to a set
+# nums.add(8)
+# print(nums)
+
+#! Add elements from one set to another
+# morenums = {5, 6, 7, 8}
+# nums.update(morenums)
+# print(nums)
+
+# * you can use update() with lists, tuples and dictionaries too
+
+#! Merge two set to form a new set
+# one = {1, 2, 3, 4}
+# two = {4, 5, 6, 7, 8}
+
+# mynewset = one.union(two)
+# print(mynewset)
+
+#! Keep only the duplicates
+one = {1, 2, 3, 4}
+two = {3, 4, 5}
+
+one.intersection_update(two)
+print(one)
+
+#! Keep everything except duplicates
+one = {1, 2, 3, 4}
+two = {3, 4, 5}
+
+one.symmetric_difference_update(two)
+print(one)
