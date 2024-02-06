@@ -11,8 +11,8 @@ class Vehicle:
 
 
 my_car = Vehicle("Tesla", "Model 3")
-# print(my_car.make)
-# print(my_car.model)
+print(my_car.make)
+print(my_car.model)
 my_car.get_make_model()
 my_car.moves()
 
@@ -42,11 +42,17 @@ class GolfCart(Vehicle):
 
 cessna = Airplane("Cessna", "Random", "K532")
 mack = Truck("Mack", "Ruva")
-golf = GolfCart("Wagon", "G200")
+golfwagon = GolfCart("Wagon", "G200")
 
 cessna.get_make_model()
 cessna.moves()
 mack.get_make_model()
 mack.moves()
-golf.get_make_model()
-golf.moves()
+golfwagon.get_make_model()
+golfwagon.moves()
+
+print("\n\n\n")
+#! ploymorphism
+for v in (my_car, your_car, cessna, mack, golfwagon):
+    v.get_make_model()
+    v.moves()
