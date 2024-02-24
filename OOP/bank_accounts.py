@@ -3,20 +3,20 @@ class BalanceException(Exception):
 
 
 class BankAccount:
-    def __init__(self, initial_amount, acct_name):
-        self.balance = initial_amount
-        self.name = acct_name
-        print(f"\nAccount '{self.name}' created.\nBalance = ${self.balance:.2f}")
+    def __init__(self, initialAmount, acctName):
+        self.balance = initialAmount
+        self.name = acctName
+        print(f"\nAccount '{self.name}' created. \nBalance=${self.balance:.2f}")
 
-    def get_balance(self):
-        print(f"\nAccount '{self.name}' balance = ${self.balance:.2f}")
+    def getBalance(self):
+        print(f"\nAccount '{self.name}' balance=${self.balance:.2f}")
 
-    def deposit(self, amount):
+    def deposite(self, amount):
         self.balance = self.balance + amount
-        print("\nDeposit complete.")
-        self.get_balance()
+        print("\nDeposite completed.")
+        self.getBalance()
 
-    def viable_transaction(self, amount):
+    def vailable_ransaction(self, amount):
         if self.balance >= amount:
             return
         else:
@@ -26,41 +26,45 @@ class BankAccount:
 
     def withdraw(self, amount):
         try:
-            self.viable_transaction(amount)
+            self.vailable_ransaction(amount)
             self.balance = self.balance - amount
             print("\nWithdraw complete.")
-            self.get_balance()
+            self.getBalance()
+
         except BalanceException as error:
             print(f"\nWithdraw interrupted: {error}")
 
     def transfer(self, amount, account):
         try:
             print("\n**********\n\nBeginning Transfer.. 🚀")
-            self.viable_transaction(amount)
+            self.vailable_ransaction(amount)
             self.withdraw(amount)
-            account.deposit(amount)
+            account.deposite(amount)
             print("\nTransfer complete! ✅\n\n**********")
+
         except BalanceException as error:
             print(f"\nTransfer interrupted. ❌ {error}")
 
 
 class InterestRewardsAcct(BankAccount):
-    def deposit(self, amount):
+    def deposite(self, amount):
         self.balance = self.balance + (amount * 1.05)
-        print("\nDeposit complete.")
-        self.get_balance()
+        print("\nDeposite complete")
+        self.getBalance()
 
 
-class SavingsAcct(InterestRewardsAcct):
-    def __init__(self, initial_amount, acct_name):
-        super().__init__(initial_amount, acct_name)
+class SavingAcct(InterestRewardsAcct):
+    def __init__(self, initialAmount, acctName):
+        #! Here to add a extra functionality, we use super keyword
+        super().__init__(initialAmount, acctName)
         self.fee = 5
 
     def withdraw(self, amount):
         try:
-            self.viable_transaction(amount + self.fee)
+            self.vailable_ransaction(amount + self.fee)
             self.balance = self.balance - (amount + self.fee)
-            print("\nWithdraw completed.")
-            self.get_balance()
+            print("\nWithdraw complete")
+            self.getBalance()
+
         except BalanceException as error:
             print(f"\nWithdraw interrupted: {error}")
