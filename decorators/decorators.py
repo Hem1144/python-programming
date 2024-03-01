@@ -5,5 +5,5 @@ def greet():
     return welcome
 
 
-somefunc = greet()
-somefunc()
+func = greet()
+func()
