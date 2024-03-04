@@ -12,7 +12,7 @@ import re
 
 
 def isEmail(signup):
-    def inner(*args):
+    def innerFunc(*args):
         print("Inside inner function")
         matched = re.search("[0-9a-z]{1,50}@[0-9a-z]{1,50}\.[a-z]{2,4}", args[1])
         if matched:
@@ -25,7 +25,7 @@ def isEmail(signup):
         # signup("dulal", "dulal@gmail.com", "123123")
         # else print some error message
 
-    return inner
+    return innerFunc
 
 
 @isEmail
